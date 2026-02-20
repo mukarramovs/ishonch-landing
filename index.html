@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISHONCH — Do'konlar Tarmog'i</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description"
+        content="ISHONCH — O'zbekistondagi eng yirik muddatli to'lovga maishiy texnika, elektronika va uy jihozlarini xarid qilish imkoniyatini taqdim etuvchi do'konlar tarmog'i.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/glass-sections.css">
+    <!-- Swiper JS CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Yandex Maps API -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=uz_UZ" type="text/javascript"></script>
+</head>
+
+<body>
+
+    <!-- ============ PRELOADER ============ -->
+    <div class="preloader" id="preloader">
+        <div class="preloader__inner">
+            <span class="preloader__icon">◆</span>
+            <span class="preloader__text">ISHONCH</span>
+            <div class="preloader__bar">
+                <div class="preloader__progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ BACKGROUND MESH BLOBS ============ -->
+    <div class="bg-blobs">
+        <div class="bg-blob bg-blob-1"></div>
+        <div class="bg-blob bg-blob-2"></div>
+        <div class="bg-blob bg-blob-3"></div>
+    </div>
+    <!-- ============ HEADER / NAVBAR ============ -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar__inner">
+            <a href="#" class="navbar__logo">
+                <span class="logo-icon">◆</span>
+                <span class="logo-text">ISHONCH</span>
+            </a>
+
+            <nav class="navbar__links" id="navLinks">
+                <a href="#about" class="nav-link active" data-i18n="nav_about">Biz haqimizda</a>
+                <a href="#features" class="nav-link" data-i18n="nav_features">Imkoniyatlar</a>
+                <a href="#promotions" class="nav-link" data-i18n="nav_promotions">Aksiyalar</a>
+                <a href="#stores" class="nav-link" data-i18n="nav_stores">Do'konlar</a>
+                <a href="#contact" class="nav-link" data-i18n="nav_contact">Aloqa</a>
+            </nav>
+
+            <div class="navbar__actions">
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="uz">O'z</button>
+                    <span class="lang-divider">/</span>
+                    <button class="lang-btn" data-lang="ru">Ру</button>
+                </div>
+                <a href="tel:+998735152222" class="navbar__phone">
+                    <i data-lucide="phone" class="phone-icon"></i>
+                    <span>73 515 22 22</span>
+                </a>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============ HERO SECTION ============ -->
+    <section class="hero" id="hero">
+        <div class="hero__bg-gradient"></div>
+        <div class="hero__particles" id="particles"></div>
+
+        <!-- Swiper Container -->
+        <div class="swiper hero-swiper">
+            <div class="swiper-wrapper" id="bannerWrapper">
+                <!-- Banners will be injected here -->
+                <div class="swiper-slide hero__slide">
+                    <div class="container hero__content">
+                        <div class="hero__text">
+                            <span class="hero__badge"><i data-lucide="award" style="width: 16px; height: 16px;"></i>
+                                120+ do'kon butun O'zbekiston bo'ylab</span>
+                            <h1 class="hero__title">
+                                Tez va qulay
+                                <span class="gradient-text">muddatli to'lov</span>
+                            </h1>
+                            <p class="hero__subtitle">
+                                Maishiy texnika, elektronika va uy jihozlarini muddatli to'lovga xarid qiling.
+                                Pasport bilan — hech qanday kafilsiz.
+                            </p>
+                            <div class="hero__cta">
+                                <a href="#features" class="btn btn--primary">
+                                    <span>Ko'proq bilish</span>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                                <a href="#stores" class="btn btn--glass">
+                                    <span>Do'konlarni topish</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="hero__visual">
+                            <div class="hero__card hero__card--1 glass-card">
+                                <i data-lucide="smartphone" class="hero-card__icon"
+                                    style="width: 32px; height: 32px;"></i>
+                                <div class="hero-card__text">
+                                    <strong>7 000+</strong>
+                                    <span>mahsulot turlari</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Swiper Pagination/Navigation if needed -->
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="hero__scroll-indicator">
+            <span>Pastga suring</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ============ TOP CATEGORIES ============ -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="categories__grid reveal">
+                <a href="#promotions" class="category-card glass-card">
+                    <i data-lucide="smartphone" class="category-card__icon"
+                        style="width: 48px; height: 48px; color: var(--accent-primary);"></i>
+                    <span class="category-card__title">Smartfonlar</span>
+                </a>
+                <a href="#promotions" class="category-card glass-card">
+                    <i data-lucide="tv" class="category-card__icon"
+                        style="width: 48px; height: 48px; color: var(--accent-primary);"></i>
+                    <span class="category-card__title">Televizorlar</span>
+                </a>
+                <a href="#promotions" class="category-card glass-card">
+                    <i data-lucide="laptop" class="category-card__icon"
+                        style="width: 48px; height: 48px; color: var(--accent-primary);"></i>
+                    <span class="category-card__title">Noutbuklar</span>
+                </a>
+                <a href="#promotions" class="category-card glass-card">
+                    <i data-lucide="refrigerator" class="category-card__icon"
+                        style="width: 48px; height: 48px; color: var(--accent-primary);"></i>
+                    <span class="category-card__title">Katta maishiy texnika</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ ABOUT SECTION ============ -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag" data-i18n="about_tag">Biz haqimizda</span>
+                <h2 class="section-title" data-i18n="about_title" data-i18n-html="true">Ishonchli hamkor — <span
+                        class="gradient-text">2010-yildan</span></h2>
+            </div>
+            <div class="about__grid">
+                <div class="about__card glass-card reveal">
+                    <div class="about__card-glow"></div>
+                    <p class="about__text">
+                        <strong>ISHONCH</strong> — muddatli to'lovga maishiy texnika, elektronika va uy jihozlarini
+                        xarid qilish imkoniyatini taqdim etuvchi O'zbekistondagi eng yirik savdo do'konlar tarmog'i.
+                    </p>
+                    <p class="about__text">
+                        Tarmoqning ilk do'koni 2010-yilda Farg'ona viloyatida o'z faoliyatini boshladi.
+                        Hozirda respublika bo'ylab <strong>120 dan ortiq do'kon</strong> aholiga sifatli xizmat
+                        ko'rsatib kelmoqda.
+                    </p>
+                </div>
+                <div class="about__stats reveal">
+                    <div class="stat-card glass-card">
+                        <span class="stat-number" data-target="120">0</span>
+                        <span class="stat-plus">+</span>
+                        <span class="stat-label">Do'konlar</span>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <span class="stat-number" data-target="7000">0</span>
+                        <span class="stat-plus">+</span>
+                        <span class="stat-label">Mahsulotlar</span>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <span class="stat-number" data-target="15">0</span>
+                        <span class="stat-plus">+</span>
+                        <span class="stat-label">Yillik tajriba</span>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <span class="stat-number" data-target="1000000">0</span>
+                        <span class="stat-plus">+</span>
+                        <span class="stat-label">Mijozlar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FEATURES SECTION ============ -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag" data-i18n="features_tag">Imkoniyatlar</span>
+                <h2 class="section-title" data-i18n="features_title" data-i18n-html="true">Nima uchun aynan <span
+                        class="gradient-text">ISHONCH?</span></h2>
+            </div>
+            <div class="features__grid">
+                <div class="feature-card glass-card reveal">
+                    <div class="feature-card__icon-wrap">
+                        <i data-lucide="credit-card" class="feature-card__icon"
+                            style="color: var(--accent-primary);"></i>
+                    </div>
+                    <h3 class="feature-card__title">Qulay muddatli to'lov</h3>
+                    <p class="feature-card__desc">
+                        Byudjet tashkilotlarining xodimlari va pensionerlarga faqat pasport bilan — kafilsiz xarid.
+                    </p>
+                </div>
+                <div class="feature-card glass-card reveal">
+                    <div class="feature-card__icon-wrap">
+                        <i data-lucide="truck" class="feature-card__icon" style="color: var(--accent-primary);"></i>
+                    </div>
+                    <h3 class="feature-card__title">Bepul yetkazib berish</h3>
+                    <p class="feature-card__desc">
+                        Xarid qilingan mahsulotlarni bepul yetkazib berish va o'rnatish xizmati.
+                    </p>
+                </div>
+                <div class="feature-card glass-card reveal">
+                    <div class="feature-card__icon-wrap">
+                        <i data-lucide="graduation-cap" class="feature-card__icon"
+                            style="color: var(--accent-primary);"></i>
+                    </div>
+                    <h3 class="feature-card__title">Foydalanishni o'rgatish</h3>
+                    <p class="feature-card__desc">
+                        Mahsulotdan foydalanishni o'rgatish xizmati mavjud — siz o'rganguncha yordam beramiz.
+                    </p>
+                </div>
+                <div class="feature-card glass-card reveal">
+                    <div class="feature-card__icon-wrap">
+                        <i data-lucide="gift" class="feature-card__icon" style="color: var(--accent-primary);"></i>
+                    </div>
+                    <h3 class="feature-card__title">Bonus tizimi</h3>
+                    <p class="feature-card__desc">
+                        Har bir xarid uchun bonus oling va keyingi xaridlarda foydalaning. Ko'proq xarid — ko'proq
+                        bonus!
+                    </p>
+                </div>
+                <div class="feature-card glass-card reveal">
+                    <div class="feature-card__icon-wrap">
+                        <i data-lucide="shield-check" class="feature-card__icon"
+                            style="color: var(--accent-primary);"></i>
+                    </div>
+                    <h3 class="feature-card__title">Kafolat xizmati</h3>
+                    <p class="feature-card__desc">
+                        Barcha mahsulotlarga rasmiy kafolat beriladi. Xavotirlanmang — biz javob beramiz.
+                    </p>
+                </div>
+                <div class="feature-card glass-card reveal">
+                    <div class="feature-card__icon-wrap">
+                        <i data-lucide="globe" class="feature-card__icon" style="color: var(--accent-primary);"></i>
+                    </div>
+                    <h3 class="feature-card__title">120+ do'kon</h3>
+                    <p class="feature-card__desc">
+                        O'zbekiston bo'ylab 120 dan ortiq do'kon — sizga eng yaqin filialni toping.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CALCULATOR ============ -->
+    <section class="calculator" id="calculator">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Hisoblash</span>
+                <h2 class="section-title">Muddatli to'lov <span class="gradient-text">kalkulyatori</span></h2>
+            </div>
+            <div class="calculator__container glass-card reveal">
+                <div class="calc-group">
+                    <div class="calc-label">
+                        <span>Mahsulot narxi</span>
+                        <span id="calcPriceLabel">5 000 000 so'm</span>
+                    </div>
+                    <input type="range" min="500000" max="50000000" step="100000" value="5000000" class="calc-range"
+                        id="calcPrice">
+                </div>
+                <div class="calc-group">
+                    <div class="calc-label">
+                        <span>Muddat (oy)</span>
+                        <span id="calcMonthLabel">12 oy</span>
+                    </div>
+                    <input type="range" min="3" max="12" step="3" value="12" class="calc-range" id="calcMonth">
+                </div>
+                <div class="calc-result">
+                    <p>Oyiga taxminiy to'lov:</p>
+                    <h3 id="calcResult">541 600 so'm</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ HOW TO BUY STEPS ============ -->
+    <section class="steps" id="steps">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Xarid qilish tartibi</span>
+                <h2 class="section-title">Qanday qilib muddatli to'lovga <span class="gradient-text">olish
+                        mumkin?</span></h2>
+            </div>
+            <div class="steps__grid reveal">
+                <div class="steps__line"></div>
+
+                <div class="step-card glass-card">
+                    <div class="step-card__num">1</div>
+                    <h3 class="step-card__title">Tanlang</h3>
+                    <p class="step-card__desc">O'zingizga yoqqan mahsulotni tanlang</p>
+                </div>
+                <div class="step-card glass-card">
+                    <div class="step-card__num">2</div>
+                    <h3 class="step-card__title">Hujjat</h3>
+                    <p class="step-card__desc">Faqat pasportni taqdim eting</p>
+                </div>
+                <div class="step-card glass-card">
+                    <div class="step-card__num">3</div>
+                    <h3 class="step-card__title">Rasmiylashtirish</h3>
+                    <p class="step-card__desc">Shartnomani 10 daqiqada tuzing</p>
+                </div>
+                <div class="step-card glass-card">
+                    <div class="step-card__num">4</div>
+                    <h3 class="step-card__title">Olib keting</h3>
+                    <p class="step-card__desc">Mahsulotni uyingizga bepul yetkazamiz</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ BRANDS MARQUEE ============ -->
+    <section class="brands" id="brands">
+        <div class="brands__marquee">
+            <span class="brand-item">APPLE</span>
+            <span class="brand-item">SAMSUNG</span>
+            <span class="brand-item">ARTEL</span>
+            <span class="brand-item">XIAOMI</span>
+            <span class="brand-item">LG</span>
+            <span class="brand-item">BOSCH</span>
+            <span class="brand-item">PANASONIC</span>
+            <span class="brand-item">SONY</span>
+
+            <span class="brand-item">APPLE</span>
+            <span class="brand-item">SAMSUNG</span>
+            <span class="brand-item">ARTEL</span>
+            <span class="brand-item">XIAOMI</span>
+            <span class="brand-item">LG</span>
+            <span class="brand-item">BOSCH</span>
+            <span class="brand-item">PANASONIC</span>
+            <span class="brand-item">SONY</span>
+        </div>
+    </section>
+
+    <!-- ============ PROMOTIONS SECTION ============ -->
+    <section class="promotions" id="promotions">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Aksiyalar</span>
+                <h2 class="section-title">Maxsus <span class="gradient-text">takliflar</span></h2>
+            </div>
+            <div class="promo__grid" id="promoWrapper">
+                <!-- Promotions will be injected here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ STORES SECTION ============ -->
+    <section class="stores" id="stores">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Do'konlar</span>
+                <h2 class="section-title">Sizga eng yaqin <span class="gradient-text">filialni toping</span></h2>
+            </div>
+            <div class="stores__layout glass-card reveal">
+                <div class="stores__map">
+                    <div id="storesMap" style="width: 100%; height: 100%; min-height: 500px; border-radius: 12px;">
+                    </div>
+                </div>
+                <div class="stores__list">
+                    <div class="stores__search">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="m21 21-4.35-4.35" />
+                        </svg>
+                        <input type="text" placeholder="Qidirish..." class="stores__search-input" id="storeSearch">
+                    </div>
+                    <div class="stores__items" id="storesList">
+                        <!-- Stores will be loaded dynamically here based on stores_data.js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FAQ SECTION ============ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Ko'p beriladigan <span class="gradient-text">savollar</span></h2>
+            </div>
+            <div class="faq__container">
+                <div class="faq-item glass-card reveal">
+                    <div class="faq-item__header">
+                        <h3 class="faq-item__title" data-i18n="faq_q1">Kimlar muddatli to'lovga xarid qilishi mumkin?
+                        </h3>
+                        <i data-lucide="plus" class="faq-item__icon"></i>
+                    </div>
+                    <div class="faq-item__content">
+                        <p data-i18n="faq_a1">O'zbekiston Respublikasi fuqarosi bo'lgan, rasmiy daromadga ega shaxslar
+                            (byudjet tashkiloti xodimlari, pensionerlar va boshqalar) muddatli to'lovga xarid qilishlari
+                            mumkin.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-card reveal">
+                    <div class="faq-item__header">
+                        <h3 class="faq-item__title" data-i18n="faq_q2">Qanday hujjatlar kerak?</h3>
+                        <i data-lucide="plus" class="faq-item__icon"></i>
+                    </div>
+                    <div class="faq-item__content">
+                        <p data-i18n="faq_a2">Asosan faqat pasport yoki ID-karta talab qilinadi. Ba'zi hollarda
+                            qo'shimcha hujjatlar so'ralishi mumkin.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-card reveal">
+                    <div class="faq-item__header">
+                        <h3 class="faq-item__title" data-i18n="faq_q3">Boshlang'ich to'lov bormi?</h3>
+                        <i data-lucide="plus" class="faq-item__icon"></i>
+                    </div>
+                    <div class="faq-item__content">
+                        <p data-i18n="faq_a3">Yo'q! Siz hech qanday boshlang'ich to'lovsiz, 0% oldindan to'lov bilan
+                            xarid qilishingiz mumkin.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-card reveal">
+                    <div class="faq-item__header">
+                        <h3 class="faq-item__title" data-i18n="faq_q4">Yetkazib berish bepulmi?</h3>
+                        <i data-lucide="plus" class="faq-item__icon"></i>
+                    </div>
+                    <div class="faq-item__content">
+                        <p data-i18n="faq_a4">Ha! Barcha xarid qilingan mahsulotlar uyingizgacha bepul yetkazib beriladi
+                            va o'rnatiladi.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-card reveal">
+                    <div class="faq-item__header">
+                        <h3 class="faq-item__title" data-i18n="faq_q5">Qanday to'lov usullari mavjud?</h3>
+                        <i data-lucide="plus" class="faq-item__icon"></i>
+                    </div>
+                    <div class="faq-item__content">
+                        <p data-i18n="faq_a5">Naqd pul, plastik karta (Click, Payme, SelloPay), bank o'tkazmasi va oylik
+                            to'lov orqali to'lash mumkin.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-card reveal">
+                    <div class="faq-item__header">
+                        <h3 class="faq-item__title" data-i18n="faq_q6">Kafolat muddati qancha?</h3>
+                        <i data-lucide="plus" class="faq-item__icon"></i>
+                    </div>
+                    <div class="faq-item__content">
+                        <p data-i18n="faq_a6">Barcha mahsulotlarga ishlab chiqaruvchi tomonidan rasmiy kafolat beriladi.
+                            Kafolat muddati mahsulot turiga qarab 6 oydan 3 yilgacha.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-card reveal">
+                    <div class="faq-item__header">
+                        <h3 class="faq-item__title" data-i18n="faq_q7">Qaysi brendlar mavjud?</h3>
+                        <i data-lucide="plus" class="faq-item__icon"></i>
+                    </div>
+                    <div class="faq-item__content">
+                        <p data-i18n="faq_a7">Apple, Samsung, Xiaomi, Artel, LG, Bosch, Panasonic, Sony va boshqa 50 dan
+                            ortiq brendlarning mahsulotlari mavjud.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-card reveal">
+                    <div class="faq-item__header">
+                        <h3 class="faq-item__title" data-i18n="faq_q8">Bonus tizimi qanday ishlaydi?</h3>
+                        <i data-lucide="plus" class="faq-item__icon"></i>
+                    </div>
+                    <div class="faq-item__content">
+                        <p data-i18n="faq_a8">Har bir xarid uchun bonuslar yig'iladi. To'plangan bonuslarni keyingi
+                            xaridlarda chegirma sifatida ishlatishingiz mumkin.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CONTACT FORM ============ -->
+    <section class="contact-form" id="contact-form">
+        <div class="container relative">
+            <div class="contact-form__container glass-card reveal">
+                <h2 class="contact-form__title">Savollaringiz bormi?</h2>
+                <p class="contact-form__desc">Raqamingizni qoldiring, biz sizga o'zimiz qo'ng'iroq qilamiz!</p>
+                <form id="leadForm">
+                    <div class="form-group">
+                        <label for="leadName">Ismingiz</label>
+                        <input type="text" id="leadName" placeholder="Alisher Navoiy" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="leadPhone">Telefon raqamingiz</label>
+                        <input type="tel" id="leadPhone" placeholder="+998 (__) ___-__-__" required>
+                    </div>
+                    <button type="submit" class="btn btn--primary" style="width: 100%; justify-content: center;">
+                        Yuborish
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <a href="#" class="navbar__logo">
+                        <span class="logo-icon">◆</span>
+                        <span class="logo-text">ISHONCH</span>
+                    </a>
+                    <p class="footer__tagline">O'zbekistondagi eng yirik muddatli to'lov do'konlar tarmog'i</p>
+                    <div class="footer__socials">
+                        <a href="https://www.youtube.com/@ISHONCHSAVDO" target="_blank" class="social-link"
+                            aria-label="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14c1.87.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/ishonchsavdouz" target="_blank" class="social-link"
+                            aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.63-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/ishonchsavdouz" target="_blank" class="social-link"
+                            aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.33l-.53 3.49h-2.8v8.44C19.61 23.08 24 18.09 24 12.07z" />
+                            </svg>
+                        </a>
+                        <a href="https://t.me/ishonch" target="_blank" class="social-link" aria-label="Telegram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M11.94 24c6.6 0 11.94-5.37 11.94-12S18.54 0 11.94 0 0 5.37 0 12s5.34 12 11.94 12zm-2.03-8.47l-.32-3.06 7.5-6.78c.33-.3-.07-.44-.51-.18l-9.27 5.84-4-1.25c-.87-.27-.88-.87.18-1.29L19.7 4.62c.72-.33 1.39.17 1.15 1.29l-2.38 11.2c-.18.8-.65.99-1.31.62l-3.63-2.68-1.75 1.69c-.19.19-.35.35-.72.35z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__links">
+                    <div class="footer__col">
+                        <h4 class="footer__heading">Sahifalar</h4>
+                        <a href="#about">Biz haqimizda</a>
+                        <a href="#features">Imkoniyatlar</a>
+                        <a href="#promotions">Aksiyalar</a>
+                        <a href="#stores">Do'konlar</a>
+                    </div>
+                    <div class="footer__col">
+                        <h4 class="footer__heading">Qo'shimcha</h4>
+                        <a href="#">Yangiliklar</a>
+                        <a href="#">Vakansiyalar</a>
+                        <a href="#">Bonus tizimi</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                    <div class="footer__col">
+                        <h4 class="footer__heading">Aloqa</h4>
+                        <a href="tel:+998735152222" style="display: flex; align-items: center; gap: 8px;"><i
+                                data-lucide="phone" style="width: 16px; height: 16px;"></i> 73 515 22 22</a>
+                        <a href="mailto:info@ishonchsavdo.uz" style="display: flex; align-items: center; gap: 8px;"><i
+                                data-lucide="mail" style="width: 16px; height: 16px;"></i> info@ishonchsavdo.uz</a>
+                        <a href="#" style="display: flex; align-items: center; gap: 8px;"><i data-lucide="map-pin"
+                                style="width: 16px; height: 16px;"></i> Farg'ona viloyati</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2010 — 2026 ISHONCH do'konlar tarmog'i. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ BACK TO TOP ============ -->
+    <button class="fab-top" id="backToTop" aria-label="Yuqoriga">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </button>
+
+    <!-- ============ TELEGRAM FAB ============ -->
+    <a href="https://t.me/ishonch_savdomarkazi_bot" class="fab-telegram" target="_blank"
+        aria-label="Telegram orqali buyurtma qiling">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.96-.65-.34-1 .22-1.58.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27 0-.12.03-1.98 1.25-5.58 3.68-.53.36-1 .55-1.43.54-.47-.01-1.37-.26-2.04-.48-.82-.27-1.47-.41-1.41-.87.03-.24.36-.48.98-.74 3.84-1.67 6.4-2.77 7.69-3.3 3.65-1.51 4.41-1.78 4.9-1.79.11 0 .35.03.48.14.11.08.14.2.15.28.01.12.01.25 0 .33z" />
+        </svg>
+    </a>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Store Data -->
+    <script src="stores_data.js"></script>
+    <script src="stores_coords.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISHONCH — Admin Panel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/glass-sections.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body class="admin-body">
+
+    <!-- ============ BACKGROUND MESH BLOBS ============ -->
+    <div class="bg-blobs">
+        <div class="bg-blob bg-blob-1"></div>
+        <div class="bg-blob bg-blob-2"></div>
+        <div class="bg-blob bg-blob-3"></div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content glass-card">
+            <h2>Admin Login</h2>
+            <p>Iltimos, parolni kiriting</p>
+            <input type="password" id="adminPass" placeholder="Password..." class="admin-input">
+            <button id="loginBtn" class="btn btn--primary">Kirish</button>
+            <p id="loginError" class="error-text" style="display:none;">Noto'g'ri parol!</p>
+        </div>
+    </div>
+
+    <!-- Admin Wrapper -->
+    <div id="adminPanel" class="admin-wrapper" style="display:none;">
+        <header class="admin-header glass-card">
+            <div class="container admin-header__inner">
+                <a href="index.html" class="navbar__logo">
+                    <span class="logo-icon">◆</span>
+                    <span class="logo-text">ISHONCH ADMIN</span>
+                </a>
+                <button id="logoutBtn" class="btn btn--glass">Chiqish</button>
+            </div>
+        </header>
+
+        <main class="container admin-main">
+            <div class="admin-tabs">
+                <button class="tab-btn active" data-tab="banners">Bannerlar</button>
+                <button class="tab-btn" data-tab="promotions">Aksiyalar</button>
+            </div>
+
+            <!-- Banners Tab -->
+            <section id="bannersTab" class="tab-content active">
+                <div class="tab-header">
+                    <h3>Bannerlarni boshqarish</h3>
+                    <button class="btn btn--primary" onclick="adminApp.openModal('banner')">+ Yangi banner</button>
+                </div>
+                <div id="bannersList" class="admin-grid">
+                    <!-- Loaded via JS -->
+                </div>
+            </section>
+
+            <!-- Promotions Tab -->
+            <section id="promotionsTab" class="tab-content">
+                <div class="tab-header">
+                    <h3>Aksiyalarni boshqarish</h3>
+                    <button class="btn btn--primary" onclick="adminApp.openModal('promo')">+ Yangi aksiya</button>
+                </div>
+                <div id="promotionsList" class="admin-grid">
+                    <!-- Loaded via JS -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content glass-card wide">
+            <h2 id="modalTitle">Tahrirlash</h2>
+            <form id="editForm" class="admin-form">
+                <input type="hidden" id="editId">
+                <input type="hidden" id="editType">
+
+                <div class="form-group">
+                    <label>Badge (masalan: 🔥 Aksiya)</label>
+                    <input type="text" id="fieldBadge" class="admin-input" required>
+                </div>
+                <div class="form-group">
+                    <label>Sarlavha (HTML ruxsat etiladi)</label>
+                    <input type="text" id="fieldTitle" class="admin-input" required>
+                </div>
+                <div class="form-group">
+                    <label>Tavsif</label>
+                    <textarea id="fieldDesc" class="admin-input" required></textarea>
+                </div>
+
+                <div id="promoFields" style="display:none;">
+                    <div class="form-group">
+                        <label>Icon (Lucide HTML, masalan: &lt;i data-lucide='tv'&gt;&lt;/i&gt;)</label>
+                        <input type="text" id="fieldIcon" class="admin-input">
+                    </div>
+                    <div class="form-group">
+                        <label>Narx/Matn (masalan: dan 300 000 so'm/oy)</label>
+                        <input type="text" id="fieldPrice" class="admin-input">
+                    </div>
+                </div>
+
+                <div id="bannerFields">
+                    <div class="form-group">
+                        <label>CTA Matni</label>
+                        <input type="text" id="fieldCtaText" class="admin-input">
+                    </div>
+                    <div class="form-group">
+                        <label>CTA Havolasi</label>
+                        <input type="text" id="fieldCtaLink" class="admin-input">
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn--glass" onclick="adminApp.closeModal()">Bekor qilish</button>
+                    <button type="submit" class="btn btn--primary">Saqlash</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>
