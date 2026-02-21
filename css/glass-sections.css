@@ -432,8 +432,6 @@
     width: 32px;
     height: 32px;
     fill: currentColor;
-    margin-right: 4px;
-    /* visually center telegram icon */
 }
 
 .fab-telegram:hover {
