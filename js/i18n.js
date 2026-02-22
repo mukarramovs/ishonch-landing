@@ -6,6 +6,7 @@ const ISHONCH_LANG = {
     uz: {
         // Nav
         nav_about: "Biz haqimizda",
+        nav_catalog: "Katalog",
         nav_features: "Imkoniyatlar",
         nav_promotions: "Aksiyalar",
         nav_stores: "Do'konlar",
@@ -40,6 +41,7 @@ const ISHONCH_LANG = {
     ru: {
         // Nav
         nav_about: "О нас",
+        nav_catalog: "Каталог",
         nav_features: "Возможности",
         nav_promotions: "Акции",
         nav_stores: "Магазины",

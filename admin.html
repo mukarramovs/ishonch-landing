@@ -49,12 +49,47 @@
 
         <main class="container admin-main">
             <div class="admin-tabs">
-                <button class="tab-btn active" data-tab="banners">Bannerlar</button>
+                <button class="tab-btn active" data-tab="products">Mahsulotlar</button>
+                <button class="tab-btn" data-tab="banners">Bannerlar</button>
                 <button class="tab-btn" data-tab="promotions">Aksiyalar</button>
             </div>
 
+            <!-- Products Tab -->
+            <section id="productsTab" class="tab-content active">
+                <div class="tab-header" style="flex-wrap: wrap; gap: 1rem;">
+                    <h3>Mahsulotlarni boshqarish</h3>
+                    <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                        <input type="text" id="adminProductSearch" class="admin-input" placeholder="Mahsearch..."
+                            style="max-width: 250px;">
+                        <button class="btn btn--glass" onclick="adminApp.openBulkDiscountModal()"
+                            style="color: var(--accent-primary); border-color: var(--accent-primary);">% Ommaviy
+                            Chegirma</button>
+                        <button class="btn btn--primary" onclick="adminApp.openProductModal()">+ Yangi mahsulot</button>
+                    </div>
+                </div>
+                <!-- We will use a table or compact list for products -->
+                <div class="admin-table-container"
+                    style="overflow-x: auto; background: white; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); margin-top: 1rem;">
+                    <table class="admin-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid #eee; background: #f9fafb;">
+                                <th style="padding: 1rem;">Rasm</th>
+                                <th style="padding: 1rem;">ID</th>
+                                <th style="padding: 1rem;">Nomi</th>
+                                <th style="padding: 1rem;">Brend / Kategoriya</th>
+                                <th style="padding: 1rem;">Narx</th>
+                                <th style="padding: 1rem; text-align: right;">Harakatlar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsList">
+                            <!-- Loaded via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
             <!-- Banners Tab -->
-            <section id="bannersTab" class="tab-content active">
+            <section id="bannersTab" class="tab-content">
                 <div class="tab-header">
                     <h3>Bannerlarni boshqarish</h3>
                     <button class="btn btn--primary" onclick="adminApp.openModal('banner')">+ Yangi banner</button>
@@ -78,7 +113,7 @@
     </div>
 
     <!-- Edit Modal -->
-    <div id="editModal" class="modal">
+    <div id="editModal" class="modal" style="display: none;">
         <div class="modal-content glass-card wide">
             <h2 id="modalTitle">Tahrirlash</h2>
             <form id="editForm" class="admin-form">
@@ -122,6 +157,94 @@
 
                 <div class="form-actions">
                     <button type="button" class="btn btn--glass" onclick="adminApp.closeModal()">Bekor qilish</button>
+                    <button type="submit" class="btn btn--primary">Saqlash</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Product Edit Modal -->
+    <div id="productModal" class="modal" style="display: none;">
+        <div class="modal-content glass-card wide" style="max-width: 800px;">
+            <h2 id="productModalTitle">Mahsulot Tahrirlash</h2>
+            <form id="productForm" class="admin-form">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <!-- Left Column -->
+                    <div>
+                        <div class="form-group">
+                            <label>Mahsulot ID (Masalan: 101, bo'sh bo'lsa avtomat beriladi)</label>
+                            <input type="text" id="prodId" class="admin-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Nomi *</label>
+                            <input type="text" id="prodName" class="admin-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Brend *</label>
+                            <input type="text" id="prodBrand" class="admin-input" required list="brandList">
+                            <datalist id="brandList"></datalist>
+                        </div>
+                        <div class="form-group">
+                            <label>Kategoriya *</label>
+                            <select id="prodCategory" class="admin-input" required>
+                                <option value="smartphones">Smartfonlar</option>
+                                <option value="tv">Televizorlar</option>
+                                <option value="laptops">Noutbuklar</option>
+                                <option value="appliances">Maishiy texnika</option>
+                                <option value="small">Mayda texnika</option>
+                                <option value="audio">Audio texnika</option>
+                            </select>
+                        </div>
+                        <div class="form-group"
+                            style="display: flex; gap: 1rem; align-items: center; margin-top: 1rem;">
+                            <input type="checkbox" id="prodIsNew" style="width: 20px; height: 20px;">
+                            <label for="prodIsNew" style="margin: 0; font-weight: 600;">"Yangi" belgisi (Yangi
+                                tovar)</label>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div>
+                        <div class="form-group" style="display: flex; gap: 1rem;">
+                            <div style="flex: 1;">
+                                <label>Amaldagi Narx *</label>
+                                <input type="number" id="prodPrice" class="admin-input" required>
+                            </div>
+                            <div style="flex: 1;">
+                                <label>Eski Narxi (Ixtiyoriy)</label>
+                                <input type="number" id="prodOldPrice" class="admin-input">
+                            </div>
+                            <div style="flex: 1;">
+                                <label>Chegirma %</label>
+                                <input type="number" id="prodDiscount" class="admin-input" value="0" min="0" max="100">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Rasm URL *</label>
+                            <input type="url" id="prodImage" class="admin-input" required>
+                            <div
+                                style="margin-top: 0.5rem; text-align: center; background: #f9fafb; border-radius: 8px; padding: 10px;">
+                                <img id="prodImagePreview" src="" alt="Preview"
+                                    style="max-height: 100px; object-fit: contain; display: none;">
+                                <span id="prodImagePlaceholder" style="color: #9ca3af; font-size: 0.8rem;">Rasm shu
+                                    yerda ko'rinadi</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Qisqacha Tavsif</label>
+                            <textarea id="prodDesc" class="admin-input" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Xarakteristikasi (Qisqacha) *</label>
+                            <input type="text" id="prodSpecs" class="admin-input" required
+                                placeholder="Masalan: 256GB, A17 Pro, 48MP">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions" style="margin-top: 2rem;">
+                    <button type="button" class="btn btn--glass" onclick="adminApp.closeProductModal()">Bekor
+                        qilish</button>
                     <button type="submit" class="btn btn--primary">Saqlash</button>
                 </div>
             </form>

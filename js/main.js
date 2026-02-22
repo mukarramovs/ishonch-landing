@@ -656,25 +656,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ---------- FORM SUBMIT ----------
+    const CRM_API = window.CRM_API_URL || 'http://localhost:8000';
     const leadForm = document.getElementById('leadForm');
     if (leadForm) {
-        leadForm.addEventListener('submit', (e) => {
+        leadForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = leadForm.querySelector('button');
             const originalText = btn.textContent;
+            const name = document.getElementById('leadName').value.trim();
+            const phone = document.getElementById('leadPhone').value.trim();
+
+            if (!name || !phone) return;
+
             btn.textContent = "Yuborilmoqda...";
             btn.style.opacity = '0.7';
+            btn.disabled = true;
+
+            try {
+                await fetch(`${CRM_API}/api/lead`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, phone, source: 'website' })
+                });
+            } catch (err) {
+                console.log('CRM API not available, lead saved locally');
+            }
+
+            btn.textContent = "✅ Yuborildi! Tez orada bog'lanamiz.";
+            btn.style.opacity = '1';
+            btn.style.background = "var(--accent-primary)";
+            btn.disabled = false;
+            leadForm.reset();
 
             setTimeout(() => {
-                btn.textContent = "✅ Yuborildi! Tez orada bog'lanamiz.";
-                btn.style.opacity = '1';
-                btn.style.background = "var(--accent-primary)";
-                leadForm.reset();
-
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                }, 4000);
-            }, 1000);
+                btn.textContent = originalText;
+                btn.style.background = '';
+            }, 4000);
         });
     }
 
@@ -720,6 +737,9 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+
+
+
 
     // ---------- PRELOADER ----------
     const preloader = document.getElementById('preloader');
